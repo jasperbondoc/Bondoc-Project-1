@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Portfolio</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Syne:wght@600;700;800&amp;display=swap" rel="stylesheet">
+
     <!-- CSS File -->
     <link rel="stylesheet" href="styles/style.css">
 </head>
@@ -14,10 +18,14 @@
     <!-- Navigation Bar -->
     <header>
         <nav class="navbar">
-            <h2 class="logo">MY<span>PORTFOLIO.</span></h2>
+            <h2 class="logo">JA<span>SPER</span></h2>
+
+            <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
 
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+                <li><a class="active" href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -51,8 +59,8 @@
 
         <div class="profile-container">
             <div class="profile-circle">
-                <img src="https://placehold.co/350x350/241014/ffffff?text=Your+Photo"
-                     alt="Profile Photo">
+                <img src="assets/profile.png"
+                     alt="Jasper's Profile Photo">
             </div>
         </div>
     </section>
@@ -228,6 +236,55 @@
         <p>© 2026 JASPER | My Personal Portfolio</p>
         <p>Designed with passion and creativity.</p>
     </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            menuToggle.classList.toggle('open', isOpen);
+            menuToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        document.querySelectorAll('.nav-links a').forEach((link) => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                menuToggle.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        const sections = document.querySelectorAll('section[id]');
+        const navigationLinks = document.querySelectorAll('.nav-links a');
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    navigationLinks.forEach((link) => {
+                        link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+                    });
+                }
+            });
+        }, { rootMargin: '-35% 0px -55%', threshold: 0 });
+
+        sections.forEach((section) => sectionObserver.observe(section));
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.section-title, .about-content, .skill-card, .project-card, .education-card, .goal-card, .social-card')
+            .forEach((element) => {
+                element.classList.add('reveal');
+                revealObserver.observe(element);
+            });
+    </script>
 
 </body>
 </html>
