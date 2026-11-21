@@ -96,6 +96,7 @@ header {
 
 .description {
     color: #bbbbbb;
+    font-size: 18px;
     line-height: 1.8;
     margin-bottom: 30px;
 }
@@ -172,7 +173,8 @@ section:not(.home) {
 
 .about-content p {
     color: #cccccc;
-    line-height: 2;
+    font-size: 18px;
+    line-height: 1.9;
 }
 
 /* SKILLS SECTION */
@@ -208,12 +210,13 @@ section:not(.home) {
 
 .skill-card h3 {
     color: #ff4545;
+    font-size: 22px;
     margin-bottom: 15px;
 }
 
 .skill-card p {
     color: #bbbbbb;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
 }
 
@@ -247,11 +250,13 @@ section:not(.home) {
 
 .project-card h3 {
     color: #ff4545;
+    font-size: 21px;
     margin-bottom: 15px;
 }
 
 .project-card p {
     color: #cccccc;
+    font-size: 16px;
     line-height: 1.7;
     margin-bottom: 20px;
 }
@@ -296,16 +301,19 @@ section:not(.home) {
 
 .education-card h3 {
     color: #ff4545;
+    font-size: 22px;
     margin-bottom: 10px;
 }
 
 .education-card h4 {
     color: #ffffff;
+    font-size: 19px;
     margin-bottom: 18px;
 }
 
 .education-card p {
     color: #bbbbbb;
+    font-size: 16px;
     line-height: 1.7;
 }
 
@@ -342,6 +350,7 @@ section:not(.home) {
 
 .goal-card h3 {
     color: #ff4545;
+    font-size: 21px;
     margin-bottom: 15px;
 }
 
@@ -353,6 +362,7 @@ section:not(.home) {
 
 .goal-card li {
     margin-bottom: 10px;
+    font-size: 16px;
     line-height: 1.6;
 }
 
@@ -395,11 +405,13 @@ section:not(.home) {
 .social-card h3 {
     margin-bottom: 8px;
     color: #ff4545;
+    font-size: 21px;
 }
 
 .social-card p {
     margin: 0;
     color: #bbbbbb;
+    font-size: 16px;
     line-height: 1.4;
 }
 
@@ -446,6 +458,7 @@ html {
 body {
     font-family: "DM Sans", sans-serif;
     background: #0b0a0a;
+    padding-top: 84px;
 }
 
 h1, h2, h3, .logo {
@@ -453,31 +466,36 @@ h1, h2, h3, .logo {
 }
 
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
-    padding: 16px 8%;
-    background: rgba(11, 10, 10, 0.88);
+    height: 84px;
+    padding: 18px 8%;
+    background: rgba(11, 10, 10, 0.94);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--line);
 }
 
 .navbar {
-    min-height: 44px;
+    min-height: 48px;
 }
 
 .logo {
+    font-size: 28px;
     letter-spacing: -0.5px;
 }
 
 .nav-links {
     align-items: center;
-    gap: 22px;
+    gap: 26px;
 }
 
 .nav-links a {
     position: relative;
-    padding: 10px 0;
+    padding: 13px 0;
+    font-size: 16px;
     color: #d5d1cf;
 }
 
@@ -543,6 +561,7 @@ header {
 .home-content {
     position: relative;
     z-index: 1;
+    max-width: 680px;
 }
 
 .greeting {
@@ -550,6 +569,7 @@ header {
     align-items: center;
     gap: 10px;
     color: #ff747b;
+    font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -562,8 +582,8 @@ header {
 }
 
 .home h1 {
-    max-width: 680px;
-    font-size: clamp(48px, 6vw, 82px);
+    max-width: 760px;
+    font-size: clamp(56px, 7vw, 92px);
     line-height: 0.98;
     letter-spacing: 0;
 }
@@ -575,17 +595,20 @@ header {
 .home h2 {
     color: #d9d5d2;
     font-family: "DM Sans", sans-serif;
+    font-size: 34px;
 }
 
 .description {
-    max-width: 560px;
+    max-width: 620px;
+    font-size: 20px;
     color: var(--muted);
 }
 
 .btn {
     border-radius: 6px;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 16px;
+    padding: 16px 30px;
     letter-spacing: 0.8px;
 }
 
@@ -613,13 +636,13 @@ header {
 
 section:not(.home) {
     position: relative;
-    padding: 96px 10%;
+    padding: 108px 10%;
 }
 
 .section-title {
     position: relative;
-    margin-bottom: 54px;
-    font-size: clamp(32px, 4vw, 48px);
+    margin-bottom: 58px;
+    font-size: clamp(42px, 5vw, 56px);
     letter-spacing: 0;
 }
 
@@ -662,6 +685,15 @@ section:not(.home) {
 .education-card,
 .goal-card {
     background: var(--surface);
+    min-height: 230px;
+    padding: 38px 32px;
+}
+
+.social-card {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .skill-card:hover,
@@ -669,8 +701,9 @@ section:not(.home) {
 .education-card:hover,
 .goal-card:hover,
 .social-card:hover {
+    transform: translateY(-10px) scale(1.015);
     border-color: rgba(255, 77, 87, 0.75);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.32);
 }
 
 .project-card,
@@ -728,12 +761,23 @@ footer {
 }
 
 @media (max-width: 700px) {
+    body {
+        padding-top: 72px;
+    }
+
     header {
+        height: 72px;
         padding: 12px 6%;
+    }
+
+    .logo {
+        font-size: 22px;
     }
 
     .menu-toggle {
         display: block;
+        width: 46px;
+        height: 46px;
     }
 
     .menu-toggle.open span:nth-child(1) {
@@ -847,12 +891,12 @@ a {
     }
 
     .home h1 {
-        font-size: clamp(38px, 13vw, 52px);
+        font-size: clamp(42px, 14vw, 56px);
         line-height: 1;
     }
 
     .home h2 {
-        font-size: 18px;
+        font-size: 22px;
     }
 
     .greeting {
@@ -880,7 +924,7 @@ a {
     }
 
     .section-title {
-        font-size: 30px;
+        font-size: 38px;
         margin-bottom: 38px;
     }
 
