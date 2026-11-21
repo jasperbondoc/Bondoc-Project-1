@@ -282,6 +282,47 @@ section:not(.home) {
     line-height: 1.8;
 }
 
+.social-links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 30px auto 0;
+}
+
+.social-card {
+    display: block;
+    padding: 22px 15px;
+    text-align: center;
+    text-decoration: none;
+    background: rgba(41, 16, 20, 0.8);
+    border: 1px solid #492126;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.social-card h3 {
+    margin-bottom: 8px;
+    color: #ff4545;
+}
+
+.social-card p {
+    margin: 0;
+    color: #bbbbbb;
+    line-height: 1.4;
+}
+
+.social-card:hover {
+    transform: translateY(-5px);
+    border-color: #ff3030;
+}
+
+@media (max-width: 600px) {
+    .social-links {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* FOOTER */
 footer {
     text-align: center;
